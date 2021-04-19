@@ -10,6 +10,15 @@ namespace socket
 {
     class Program
     {
+        static void Main(string[] args)
+        {
+            Thread wat1 = new Thread(client1);
+            wat1.Start();
+
+            Thread wat2 = new Thread(client2);
+            wat2.Start();
+        }
+
         static void client1()
         {
             byte[] bytes = new Byte[1024];
@@ -35,7 +44,7 @@ namespace socket
                             handler.Receive(bytes);
                             data = BitConverter.ToString(bytes);
 
-                            string path = @"dane_client1.txt";
+                            string path = Thread.CurrentThread.ManagedThreadId + ".txt";
                             using (StreamWriter sw = File.CreateText(path))
                             {
                                 sw.WriteLine(data);
@@ -90,8 +99,8 @@ namespace socket
                             data = BitConverter.ToString(bytes);
                             Console.WriteLine($"Received: {data}");
 
-
-                            string path = @"dane_client2.txt";
+                            string path = Thread.CurrentThread.ManagedThreadId + ".txt";
+                            //string path = @"dane_client2.txt";
                             using (StreamWriter sw = File.CreateText(path))
                             {
                                 sw.WriteLine(data);
@@ -117,14 +126,6 @@ namespace socket
             }
         }
 
-        static void Main(string[] args)
-        {
-            Thread wat1 = new Thread(client1);
-            wat1.Start();
-
-            Thread wat2 = new Thread(client2);
-            wat2.Start();
-        }
 
     }
 }
