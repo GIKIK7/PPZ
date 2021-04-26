@@ -1,3 +1,5 @@
+(Po zrobieniu sudo apt-get update i sudo apt install rpcbind)
+
 1)Pobrac pliki w katalogach jakich są
 
 2)W katalogu Proces1_2 oraz Proces3 wpisać:
