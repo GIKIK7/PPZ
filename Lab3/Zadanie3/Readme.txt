@@ -9,3 +9,5 @@
 5) ruszamy proces1 poprzez: ./client. Program poprosi o liczbe. Wpisujemy liczbe, zatwierdzamy enterem.
 
 6) proces2 przyjmuje daną, konwertuje ją na hex i wysyła do procesu3. Proces3 odbiera daną i wypisuję ją.
+
+(Client na końcu może wypisywać error o braku odpowiedzi z servera. Jest to normalnei nie trzeba się tym martwić)
